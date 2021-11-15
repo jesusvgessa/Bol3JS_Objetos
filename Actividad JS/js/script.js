@@ -44,9 +44,12 @@ function Edificio(calle,num,codPos){
     };
 
     this.agregarPropietario = function (nombre,planta,puerta){
+        //Array de plantas, y dentro las puertas nombre
         if(planta>=0){
-            
+
         }
     };
+    this.imprimePlantas = function(){
 
+    };
 }
