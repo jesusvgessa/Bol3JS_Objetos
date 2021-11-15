@@ -1,0 +1,183 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    background-color: #333;
+    color: white;
+    font-family: sans-serif;
+    font-size: large;
+}
+
+
+/* Header */
+
+header {
+    background-color: #141e30;
+    height: 6em;
+}
+
+header h1 {
+    color: white;
+    font-size: 4em;
+    text-align: center;
+}
+
+
+/* Nav */
+
+nav {
+    font-family: consolas;
+    display: block;
+    display: flex;
+    justify-content: center;
+    height: 1.8em;
+    background-color: #141e30;
+    color: white;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    display: inline-block;
+    position: relative;
+    margin-left: 1em;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border-radius: 1em 1em 0 0;
+    transition: all ease-in-out 400ms;
+}
+
+nav a:hover {
+    color: #03e9f4;
+    background-color: white;
+}
+
+
+/* Section */
+
+.form {
+    background: linear-gradient(#141e30, #243b55);
+    border-radius: 1em;
+    width: 40em;
+    height: 25em;
+    padding: 5em;
+    margin: 0 auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    box-shadow: 0 1em 1.5em rgba(0, 0, 0, 0.6);
+}
+
+.form h1 {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.form .datos {
+    position: relative;
+}
+
+.form .datos input {
+    width: 100%;
+    padding: 1em 0;
+    font-size: 1em;
+    color: white;
+    margin-bottom: 2em;
+    border: none;
+    /* Para quitarle los bordes al cuadro de texto */
+    outline: none;
+    border-bottom: 0.1em solid white;
+    background: transparent;
+}
+
+.form .datos label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1em 0;
+    font-size: 1em;
+    color: white;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.form .datos input:focus~label,
+.form .datos input:valid~label {
+    top: -1em;
+    left: 0;
+    color: #03e9f4;
+    font-size: 0.8em;
+}
+
+.form button {
+    float: right;
+    height: 4em;
+    width: 10em;
+    background-color: #141e30;
+    border-radius: 2em;
+    color: white;
+    text-transform: uppercase;
+    border: 0.2em solid white;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: #03e9f4;
+    color: white;
+    box-shadow: teal;
+}
+
+.res {
+    text-align: center;
+    background: linear-gradient(#243b55, #141e30);
+    color: white;
+    box-shadow: 0 1em 1.5em rgba(0, 0, 0, 0.6);
+    border-radius: 2em;
+    padding: 2em;
+    height: auto;
+    width: 20em;
+    margin: 0 auto;
+    margin-bottom: 2em;
+}
+
+.tabla {
+    margin-bottom: 2em;
+}
+
+.tabla h1 {
+    font-size: larger;
+    text-decoration: underline #03e9f4;
+    margin-bottom: 0.5em;
+}
+
+.tabla table {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.tabla table th {
+    padding: 1em;
+}
+
+.tabla table,
+.tabla td {
+    padding: 1em;
+    border: #141e30 solid 0.2em;
+    border-collapse: collapse;
+}
+
+
+/* Footer */
