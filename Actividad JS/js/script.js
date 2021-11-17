@@ -1,4 +1,33 @@
-function Edificio(calle, num = "s/n", codPos) {
+function generarEdificios() {
+    var edificioA = new Edificio("Garcia Prieto", 58, 15706);
+    var edificioB = new Edificio("Camino Caneiro", 29, 32004);
+    var edificioC = new Edificio("San Clemente", "s/n", 15705);
+    var sMensaje = document.createElement('p');
+    sMensaje.innerHTML = "El código postal del edificio A es: " + edificioA.imprimeCodigoPostal() + ".";
+    document.body.appendChild(sMensaje);
+    var sMensaje = document.createElement('p');
+    sMensaje.innerHTML = "La calle del edificio C es: " + edificioC.imprimeCalle() + ".";
+    document.body.appendChild(sMensaje);
+    var sMensaje = document.createElement('p');
+    sMensaje.innerHTML = "El edificio B está situado en la calle " + edificioB.imprimeCalle() + " número " + edificioB.imprimeNumero() + ".";
+    document.body.appendChild(sMensaje);
+    edificioA.agregarPlantasYPuertas(2, 3);
+    edificioA.agregarPropietario("Jose Antonio Lopez", 1, 1);
+    edificioA.agregarPropietario("Luisa Martinez", 1, 2);
+    edificioA.agregarPropietario("Marta Castellón", 1, 3);
+    edificioA.agregarPropietario("Antonio Pereira", 2, 2);
+    var sListado = document.createElement('p');
+    sListado.innerHTML = "Listado de propietarios del edificio calle " + edificioA.imprimeCalle() + " número " + edificioA.imprimeNumero();
+    sListado.setAttribute("font-weight", "bold");
+    document.body.appendChild(sListado);
+    edificioA.imprimePlantas();
+    edificioA.agregarPlantasYPuertas(1, 3);
+    edificioA.agregarPropietario("Pedro Meijide", 3, 2);
+    document.body.appendChild(sListado);
+    edificioA.imprimePlantas();
+}
+
+function Edificio(calle, num, codPos) {
     //Propiedades:
     this.calle = calle;
     this.num = num;
@@ -12,7 +41,7 @@ function Edificio(calle, num = "s/n", codPos) {
     //Añadir plantas y puertas
     this.agregarPlantasYPuertas = function(numplantas, puertas) {
         if (numplantas > 0 && puerta > 0) {
-            for (var i = this.planta.length; i <= this.planta.length + numplantas; i++) {
+            for (var i = this.planta.length + 1; i < this.planta.length + 1 + numplantas; i++) {
                 var planta = i;
                 for (var f = 1; f <= puertas; f++) {
                     var puerta = f;
@@ -84,7 +113,11 @@ function Edificio(calle, num = "s/n", codPos) {
     this.imprimePlantas = function() {
         for (var i = 0; i <= this.planta; i++) {
             var sMensaje = document.createElement('p');
-            sMensaje.innerHTML = "Propietario del piso " + this.planta[i][1] + " de la planta " + this.planta[i][0] + ":" + this.planta[i][2] + ".";
+            if (this.planta[i].length == 3) {
+                sMensaje.innerHTML = "El propietario del piso " + this.planta[i][1] + " de la planta " + this.planta[i][0] + " es:" + this.planta[i][2] + ".";
+            } else {
+                sMensaje.innerHTML = "El propietario del piso " + this.planta[i][1] + " de la planta " + this.planta[i][0] + " es: VACÍO.";
+            } //Fin Si
             document.body.appendChild(sMensaje);
         } //Fin Para
     };
