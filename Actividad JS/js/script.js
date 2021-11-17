@@ -6,19 +6,19 @@ function Edificio(calle, num, codPos) {
     this.planta = new Array();
 
     //Metodos:
+    //Añadir plantas y puertas
     this.agregarPlantasYPuertas = function(numplantas, puertas) {
         if (numplantas > 0 && puerta > 0) {
             for (var i = 0; i <= numplantas; i++) {
-                var piso = new Array(puertas);
-                this.planta.push(piso);
-                // for (var f = 1; f <= puertas; f++) {
-                //     var puerta = f;
-                //     var piso = [planta, puerta];
-                //     this.planta.push(piso);
-                // } //Fin Para
+                var planta = i;
+                for (var f = 1; f <= puertas; f++) {
+                    var puerta = f;
+                    var piso = [planta, puerta];
+                    this.planta.push(piso);
+                } //Fin Para
             } //Fin Para
         } else {
-            //Mensaje de que debe introducir mas numplantas/puertas
+            alert("Debe introducir un numero de plantas y puertas valido.")
         } //Fin Si
     };
 
@@ -44,11 +44,17 @@ function Edificio(calle, num, codPos) {
         return this.codPos;
     };
 
+    //Añadir propietarios
     this.agregarPropietario = function(nombre, planta, puerta) {
-        //Array de plantas, y dentro las puertas nombre
-        if (planta >= 0 && planta < this.planta.length) {
-            this.planta[planta][puerta] = nombre;
-        }
+        if (nombre == "") {
+            alert("Debe introducir un nombre.");
+        } else if (planta < 0 || planta > this.planta.length) {
+            alert("La planta debe ser mayor o igual que 0 y menor que " + this.planta.length);
+        } else if (puerta < 1 || puerta > this.planta[-1][1]) {
+            alert("El numero de la puerta debe ser mayor que 0 y menor que " + this.planta[-1][1]);
+        } else {
+
+        } //Fin si
     };
     this.imprimePlantas = function() {
 
