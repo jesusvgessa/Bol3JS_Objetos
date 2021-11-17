@@ -40,7 +40,7 @@ function Edificio(calle, num, codPos) {
     //Metodos:
     //Añadir plantas y puertas
     this.agregarPlantasYPuertas = function(numplantas, puertas) {
-        if (numplantas > 0 && puerta > 0) {
+        if (numplantas > 0 && puertas > 0) {
             for (var i = this.planta.length + 1; i < this.planta.length + 1 + numplantas; i++) {
                 var planta = i;
                 for (var f = 1; f <= puertas; f++) {
@@ -49,6 +49,7 @@ function Edificio(calle, num, codPos) {
                     this.planta.push(piso);
                 } //Fin Para
             } //Fin Para
+            alert("piso cargao");
         } else {
             alert("Debe introducir un numero de plantas y puertas valido.")
         } //Fin Si
