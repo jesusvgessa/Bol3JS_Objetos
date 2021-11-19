@@ -20,7 +20,7 @@ function generarEdificios() {
     edificioA.agregarPropietario("Marta Castellón", 1, 3);
     edificioA.agregarPropietario("Antonio Pereira", 2, 2);
 
-    var sListado = document.createElement('p');
+    var sListado = document.createElement('b');
     sListado.innerHTML = "Listado de propietarios del edificio calle " + edificioA.imprimeCalle() + " número " + edificioA.imprimeNumero();
     document.body.appendChild(sListado);
 
@@ -29,7 +29,7 @@ function generarEdificios() {
     edificioA.agregarPlantasYPuertas(1, 3);
     edificioA.agregarPropietario("Pedro Meijide", 3, 2);
 
-    var sListado = document.createElement('p');
+    var sListado = document.createElement('b');
     sListado.innerHTML = "Listado de propietarios del edificio calle " + edificioA.imprimeCalle() + " número " + edificioA.imprimeNumero();
     document.body.appendChild(sListado);
 

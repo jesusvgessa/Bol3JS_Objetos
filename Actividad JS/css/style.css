@@ -51,7 +51,8 @@ button:hover {
     box-shadow: teal;
 }
 
-p {
+p,
+b {
     color: white;
     margin-left: 5em;
     margin-top: 0.2em;
