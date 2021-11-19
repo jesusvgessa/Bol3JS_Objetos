@@ -67,9 +67,8 @@ function Edificio(calle, num, codPos) {
                     this.planta.push(piso);
                 } //Fin Para
             } //Fin Para
-            alert("piso cargao");
         } else {
-            alert("Debe introducir un numero de plantas y puertas valido.")
+            alert("Debe introducir un numero de plantas y puertas valido.");
         } //Fin Si
     };
 

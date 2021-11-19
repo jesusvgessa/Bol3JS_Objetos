@@ -27,9 +27,13 @@ header h1 {
 
 /* Section */
 
-button {
+div {
+    display: flex;
     justify-content: center;
-    margin-top: 3em;
+}
+
+button {
+    margin: 3em 0 3em 0;
     height: 4em;
     width: 10em;
     background-color: #141e30;
@@ -50,5 +54,5 @@ button:hover {
 p {
     color: white;
     margin-left: 5em;
-    margin-top: 3em;
+    margin-top: 0.2em;
 }
