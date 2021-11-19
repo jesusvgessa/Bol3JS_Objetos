@@ -2,6 +2,7 @@ function generarEdificios() {
     var edificioA = new Edificio("Garcia Prieto", 58, 15706);
     var edificioB = new Edificio("Camino Caneiro", 29, 32004);
     var edificioC = new Edificio("San Clemente", "s/n", 15705);
+
     var sMensaje = document.createElement('p');
     sMensaje.innerHTML = "El código postal del edificio A es: " + edificioA.imprimeCodigoPostal() + ".";
     document.body.appendChild(sMensaje);
@@ -11,19 +12,27 @@ function generarEdificios() {
     var sMensaje = document.createElement('p');
     sMensaje.innerHTML = "El edificio B está situado en la calle " + edificioB.imprimeCalle() + " número " + edificioB.imprimeNumero() + ".";
     document.body.appendChild(sMensaje);
+
     edificioA.agregarPlantasYPuertas(2, 3);
+
     edificioA.agregarPropietario("Jose Antonio Lopez", 1, 1);
     edificioA.agregarPropietario("Luisa Martinez", 1, 2);
     edificioA.agregarPropietario("Marta Castellón", 1, 3);
     edificioA.agregarPropietario("Antonio Pereira", 2, 2);
+
     var sListado = document.createElement('p');
     sListado.innerHTML = "Listado de propietarios del edificio calle " + edificioA.imprimeCalle() + " número " + edificioA.imprimeNumero();
-    sListado.setAttribute("font-weight", "bold");
     document.body.appendChild(sListado);
+
     edificioA.imprimePlantas();
+
     edificioA.agregarPlantasYPuertas(1, 3);
     edificioA.agregarPropietario("Pedro Meijide", 3, 2);
+
+    var sListado = document.createElement('p');
+    sListado.innerHTML = "Listado de propietarios del edificio calle " + edificioA.imprimeCalle() + " número " + edificioA.imprimeNumero();
     document.body.appendChild(sListado);
+
     edificioA.imprimePlantas();
 }
 
@@ -40,8 +49,17 @@ function Edificio(calle, num, codPos) {
     //Metodos:
     //Añadir plantas y puertas
     this.agregarPlantasYPuertas = function(numplantas, puertas) {
+        //Filtro si lo que me pasa es correcto.
         if (numplantas > 0 && puertas > 0) {
-            for (var i = this.planta.length + 1; i < this.planta.length + 1 + numplantas; i++) {
+            //Pregunto si tiene alguna planta, y en caso de tenerla,
+            //cojo el ultimo piso del array this.planta, y el primer atributo
+            //que es donde almaceno la planta del piso.
+            if (this.planta.length == 0) {
+                var iNumeroPlantas = 0;
+            } else {
+                var iNumeroPlantas = this.planta[this.planta.length - 1][0];
+            } //Fin Si
+            for (var i = iNumeroPlantas + 1; i < iNumeroPlantas + 1 + numplantas; i++) {
                 var planta = i;
                 for (var f = 1; f <= puertas; f++) {
                     var puerta = f;
@@ -79,12 +97,18 @@ function Edificio(calle, num, codPos) {
 
     //Añadir propietarios
     this.agregarPropietario = function(nombre, planta, puerta) {
+        //Numero de plantas
+        if (this.planta.length == 0) {
+            var iNumeroPlantas = 0;
+        } else {
+            var iNumeroPlantas = this.planta[this.planta.length - 1][0];
+        } //Fin Si
         if (nombre == "") {
             alert("Debe introducir un nombre.");
-        } else if (planta < 0 || planta > this.planta.length) {
-            alert("La planta debe ser mayor o igual que 0 y menor que " + this.planta.length);
-        } else if (puerta < 1 || puerta > this.planta[-1][1]) {
-            alert("El numero de la puerta debe ser mayor que 0 y menor que " + this.planta[-1][1]);
+        } else if (planta < 1 || planta > iNumeroPlantas) {
+            alert("La planta debe ser mayor o igual que 0 y menor que " + iNumeroPlantas);
+        } else if (puerta < 1 || puerta > this.planta[this.planta.length - 1][1]) {
+            alert("El numero de la puerta debe ser mayor que 0 y menor que " + this.planta[this.planta.length - 1][1]);
         } else {
             var i = 0;
             var j = 0;
@@ -112,7 +136,7 @@ function Edificio(calle, num, codPos) {
     };
 
     this.imprimePlantas = function() {
-        for (var i = 0; i <= this.planta; i++) {
+        for (var i = 0; i < this.planta.length; i++) {
             var sMensaje = document.createElement('p');
             if (this.planta[i].length == 3) {
                 sMensaje.innerHTML = "El propietario del piso " + this.planta[i][1] + " de la planta " + this.planta[i][0] + " es:" + this.planta[i][2] + ".";

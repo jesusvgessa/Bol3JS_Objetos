@@ -28,7 +28,7 @@ header h1 {
 /* Section */
 
 button {
-    margin: 0 auto;
+    justify-content: center;
     margin-top: 3em;
     height: 4em;
     width: 10em;
@@ -48,6 +48,7 @@ button:hover {
 }
 
 p {
-    text-align: center;
     color: white;
+    margin-left: 5em;
+    margin-top: 3em;
 }
